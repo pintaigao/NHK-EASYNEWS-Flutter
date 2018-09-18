@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
       body: CustomScrollView(
         slivers: <Widget>[
           Appbar(),
+          BodyGrid()
         ],
       ),
     );
@@ -38,7 +39,7 @@ class _HomePageState extends State<HomePage> {
   Widget Appbar() => SliverAppBar(
         backgroundColor: Color.fromRGBO(255, 250, 250, 0.8),
         pinned: true,
-        elevation: 15.0,
+        elevation: 0.2,
         forceElevated: true,
         expandedHeight: 100.0,
 //    flexibleSpace: FlexibleSpaceBar(
@@ -56,8 +57,8 @@ class _HomePageState extends State<HomePage> {
           childAspectRatio: 1.0,
         ),
       delegate: SliverChildBuilderDelegate((BuildContext context,int index){
-        return null;
-      },childCount: 10),
+        return NewsCard(index);
+      },childCount: 20),
   );
 
 

@@ -4,9 +4,49 @@ import 'package:nhkeasynews/store/main.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class NewsCard extends StatelessWidget {
+
   int selectItemCardIndex;
 
   NewsCard(this.selectItemCardIndex);
+
+  Widget _buildNewsCardStack(BuildContext context){
+    return InkWell(
+      splashColor: Colors.orange,
+      child:Card(
+        elevation: 5.0,
+        child: Stack(
+          children: <Widget>[
+            NewsCardImage(),
+            NewsCardColor(),
+            NewsTitle(),
+          ],
+        ),
+      )
+    );
+  }
+
+  /* Set up News Image Card Image*/
+  Widget NewsCardImage()=> AspectRatio(
+    aspectRatio: 1.0,
+    child: Image.network("https://d9np3dj86nsu2.cloudfront.net/image/f38d045d55e0b043c8a84d02fb7069a5",fit: BoxFit.cover)
+  );
+
+  /* Set up News Image Card Color */
+  Widget NewsCardColor() => new Container(
+    decoration: BoxDecoration(boxShadow:[
+      BoxShadow(
+          color: Colors.white.withAlpha(500),
+      )
+    ]),
+  );
+
+  /* Set up News Title */
+  Widget NewsTitle() => Container(
+    alignment: Alignment.bottomLeft,
+    child: new Text("This is a title",style: TextStyle(color: Colors.black,fontWeight: FontWeight.w100),),
+  );
+
+
 
   Widget _buildItemInfo(BuildContext context) {
     return Container(
@@ -30,8 +70,7 @@ class NewsCard extends StatelessWidget {
   }
 
   /* Product Version */
-  /*
-  @override
+  /*@override
   Widget build(BuildContext context) {
     return Card(
       elevation: 5.0,
@@ -59,25 +98,12 @@ class NewsCard extends StatelessWidget {
             );
           }),
     );
-  }
-  */
+  }*/
 
-  /* Product Version */
+  /* Developer Version */
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5.0,
-      child: ScopedModelDescendant<MainModel>(
-          builder: (BuildContext context, Widget child, MainModel model) {
-        return Stack(
-          children: <Widget>[
-            new Container(
-              decoration: new BoxDecoration(
-                  borderRadius: BorderRadius.circular(5.0)),
-            ),
-          ],
-        );
-      }),
-    );
+    return _buildNewsCardStack(context);
   }
 }
