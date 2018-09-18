@@ -11,12 +11,20 @@ class ConnectedProductsModel extends Model {
 }
 
 class NewsListModel extends ConnectedProductsModel {
+
+  // Getter
   List<NewsList> get allNewsList {
     return List.from(_newsList);
   }
 
+  bool get isLoading{
+    return _isLoading;
+  }
+
+
   Future<Null> startGetAllNewsList() {
     _isLoading = true;
+    print(_isLoading);
     http.get("http://localhost:8080/api/news").then((http.Response response) {
       final List<NewsList> fetchNewsList = [];
       List<dynamic> newslistData = json.decode(response.body);
@@ -28,11 +36,13 @@ class NewsListModel extends ConnectedProductsModel {
             news_id: newsdata["news_id"],
             title: newsdata["title"],
             title_with_ruby: newsdata["title_with_ruby"],
+            news_web_img_uri: newsdata["news_web_image_uri"],
             news_prearranged_time: newsdata["news_prearranged_time"],
             news_web_url: newsdata["news_web_url"]);
-        fetchNewsList.add(newsList);
+            fetchNewsList.add(newsList);
       });
       _isLoading = false;
+      print(_isLoading);
       _newsList = fetchNewsList;
       notifyListeners();
     }).catchError((error){

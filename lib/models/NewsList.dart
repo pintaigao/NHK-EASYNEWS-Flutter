@@ -12,7 +12,7 @@ class NewsList {
     @required this.news_id,
     @required this.title,
     @required this.title_with_ruby,
-    this.news_web_img_uri = "",
+    @required this.news_web_img_uri,
     @required this.news_prearranged_time,
     @required this.news_web_url
   });
