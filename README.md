@@ -1,0 +1,2 @@
+# NHK EASY NEWS CLIENT 
+
