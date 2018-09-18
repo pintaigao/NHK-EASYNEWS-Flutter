@@ -21,15 +21,16 @@ class NewsCard extends StatelessWidget {
           new IconButton(
             icon: Icon(Icons.comment),
             color: Colors.grey,
-            onPressed: () =>
-                Navigator.pushNamed(
-                    context, "/home/" + selectItemCardIndex.toString()),
+            onPressed: () => Navigator.pushNamed(
+                context, "/home/" + selectItemCardIndex.toString()),
           )
         ],
       ),
     );
   }
 
+  /* Product Version */
+  /*
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -48,15 +49,35 @@ class NewsCard extends StatelessWidget {
                 new Container(
                   decoration: new BoxDecoration(image: DecorationImage(image: img,fit: BoxFit.cover),borderRadius:BorderRadius.circular(5.0)),
                 ),
-                /*Expanded(
+                */ /*Expanded(
                   child: new Align(
                     alignment: Alignment.bottomCenter,
                     child: _buildItemInfo(context),
                   ),
-                ),*/
+                ),*/ /*
               ],
             );
           }),
+    );
+  }
+  */
+
+  /* Product Version */
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 5.0,
+      child: ScopedModelDescendant<MainModel>(
+          builder: (BuildContext context, Widget child, MainModel model) {
+        return Stack(
+          children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0)),
+            ),
+          ],
+        );
+      }),
     );
   }
 }

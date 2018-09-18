@@ -26,9 +26,10 @@ class _MyAppState extends State<MyApp> {
         theme: new ThemeData(
           primarySwatch: Colors.grey,
         ),
-        home: HomePage(model),
+//        home: HomePage(model),
+        home: HomePage(),
         routes: {
-          "/home": (BuildContext context) => HomePage(model)
+          "/home": (BuildContext context) => HomePage()
         },
         onGenerateRoute: (RouteSettings settings) {
           final List<String> pathElements = settings.name.split("/");
