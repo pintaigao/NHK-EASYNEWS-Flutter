@@ -12,6 +12,7 @@ class NewsCard extends StatelessWidget {
   Widget _buildNewsCardStack(BuildContext context){
     return InkWell(
       splashColor: Colors.orange,
+      borderRadius: BorderRadius.circular(10.0),
       child:Card(
         elevation: 5.0,
         child: Stack(
@@ -28,7 +29,9 @@ class NewsCard extends StatelessWidget {
   /* Set up News Image Card Image*/
   Widget NewsCardImage()=> AspectRatio(
     aspectRatio: 1.0,
-    child: Image.network("https://d9np3dj86nsu2.cloudfront.net/image/f38d045d55e0b043c8a84d02fb7069a5",fit: BoxFit.cover)
+    child: Container(
+      child: Image(image: NetworkImage("https://d9np3dj86nsu2.cloudfront.net/image/f38d045d55e0b043c8a84d02fb7069a5"),fit: BoxFit.cover)
+    )
   );
 
   /* Set up News Image Card Color */
@@ -36,7 +39,7 @@ class NewsCard extends StatelessWidget {
     decoration: BoxDecoration(boxShadow:[
       BoxShadow(
           color: Colors.white.withAlpha(500),
-      )
+      ),
     ]),
   );
 
