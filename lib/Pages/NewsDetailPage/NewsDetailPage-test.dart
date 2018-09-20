@@ -73,7 +73,6 @@ class _NewsDetailPage_testState extends State<NewsDetailsPage_test> {
           eacharticle.add(new RW(key, value));
         }
       });
-      eacharticle.add(SizedBox(height: 80.0,));
       list.add(new Wrap(
         crossAxisAlignment: WrapCrossAlignment.end,
         children: eacharticle,
