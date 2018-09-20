@@ -1,14 +1,8 @@
 # NHK EASY NEWS CLIENT 
 
+### Screenshot
 
-
-
-
-
-
-
-
-
+<img src = "/resources/NHK_ScreenShot.png" height = 100/>
 
 ### Bug Resolved Lists
 
