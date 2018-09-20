@@ -2,7 +2,7 @@
 
 ### Screenshot
 
-<img src = "/resources/NHK_ScreenShot.png" height = "300px"/>
+<img src = "/resources/NHK_ScreenShot.png" height = "50%"/>
 
 ### Bug Resolved Lists
 
