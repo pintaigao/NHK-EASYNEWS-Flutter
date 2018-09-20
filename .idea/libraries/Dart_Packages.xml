@@ -79,6 +79,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_html">
+          <value>
+            <list>
+              <option value="$USER_HOME$/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_html-0.7.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_test">
           <value>
             <list>
@@ -407,6 +414,7 @@
       <root url="file://$USER_HOME$/Flutter/.pub-cache/hosted/pub.dartlang.org/crypto-2.0.6/lib" />
       <root url="file://$USER_HOME$/Flutter/.pub-cache/hosted/pub.dartlang.org/csslib-0.14.5/lib" />
       <root url="file://$USER_HOME$/Flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-0.1.2/lib" />
+      <root url="file://$USER_HOME$/Flutter/.pub-cache/hosted/pub.dartlang.org/flutter_html-0.7.1/lib" />
       <root url="file://$USER_HOME$/Flutter/.pub-cache/hosted/pub.dartlang.org/front_end-0.1.4/lib" />
       <root url="file://$USER_HOME$/Flutter/.pub-cache/hosted/pub.dartlang.org/glob-1.1.7/lib" />
       <root url="file://$USER_HOME$/Flutter/.pub-cache/hosted/pub.dartlang.org/html-0.13.3+3/lib" />

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nhkeasynews/Pages/HomePage/HomePage.dart';
+import 'package:nhkeasynews/Pages/NewsDetailPage/NewsDetailPage-test.dart';
 import 'package:nhkeasynews/Pages/NewsDetailPage/NewsDetailPage.dart';
 import "package:nhkeasynews/store/main.dart";
 import 'package:scoped_model/scoped_model.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   @override
   Widget build(BuildContext context) {
     final MainModel model = MainModel();
@@ -27,9 +29,10 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.grey,
         ),
 //        home: HomePage(model),
-        home: HomePage(),
+        home: NewsDetailsPage_test(model),
         routes: {
-          "/home": (BuildContext context) => HomePage()
+//          "/home": (BuildContext context) => HomePage(model),
+          "/home": (BuildContext context) => NewsDetailsPage_test(model),
         },
         onGenerateRoute: (RouteSettings settings) {
           final List<String> pathElements = settings.name.split("/");
@@ -45,4 +48,5 @@ class _MyAppState extends State<MyApp> {
       )
     );
   }
+
 }
