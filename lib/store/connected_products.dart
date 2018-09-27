@@ -30,6 +30,7 @@ class NewsListModel extends ConnectedProductsModel {
 
   Future<dynamic> startGetAllNewsList() {
     _isLoading = true;
+//    return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news").then((http.Response response) {
     return http.get("http://localhost:8080/api/news").then((http.Response response) {
       final List<NewsList> fetchNewsList = [];
       List<dynamic> newslistData = json.decode(response.body);
@@ -59,10 +60,12 @@ class NewsListModel extends ConnectedProductsModel {
   }
 
   /* Get News Detail */
-  Future<dynamic> startGetNewsDetail()  {
+  Future<dynamic> startGetNewsDetail(int index)  {
     _isLoading = true;
     notifyListeners();
-    return http.get("http://localhost:8080/api/news/k10011579301000").then((http.Response response) {
+    var newsId = allNewsList[index].news_id;
+    print(newsId);
+    return http.get("http://localhost:8080/api/news/" + newsId).then((http.Response response) {
       final Map<String,dynamic> newsDetail = json.decode(response.body);
       if (newsDetail == null) {
         return;

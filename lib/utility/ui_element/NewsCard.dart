@@ -1,94 +1,5 @@
-//import 'package:flutter/material.dart';
-//import 'package:nhkeasynews/models/NewsList.dart';
-//import 'package:nhkeasynews/store/main.dart';
-//import 'package:scoped_model/scoped_model.dart';
-//
-//class NewsCard extends StatelessWidget {
-//  int selectItemCardIndex;
-//
-//  NewsCard(this.selectItemCardIndex);
-//
-//  Widget _buildItemInfo(BuildContext context) {
-//    return Container(
-//      padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 3.0),
-//      child: Row(
-//        mainAxisAlignment: MainAxisAlignment.spaceAround,
-//        children: <Widget>[
-//          new IconButton(
-//            icon: Icon(Icons.favorite),
-//            color: Colors.grey,
-//          ),
-//          new IconButton(
-//            icon: Icon(Icons.comment),
-//            color: Colors.grey,
-//            onPressed: () => Navigator.pushNamed(
-//                context, "/home/" + selectItemCardIndex.toString()),
-//          )
-//        ],
-//      ),
-//    );
-//  }
-//
-//  /* Product Version */
-//  @override
-//  Widget build(BuildContext context) {
-//    return Card(
-//      elevation: 5.0,
-//      child: ScopedModelDescendant<MainModel>(
-//          builder: (BuildContext context, Widget child, MainModel model) {
-//            String url = model.allNewsList[selectItemCardIndex].news_web_img_uri == null ? "https://www3.nhk.or.jp/news/easy/images/banner_newsweb_pc.png" : model.allNewsList[selectItemCardIndex].news_web_img_uri;
-//            NetworkImage img = null;
-//            try {
-//              img = new NetworkImage(url);
-//            } catch (error) {
-//              img = new NetworkImage( "https://www3.nhk.or.jp/news/easy/images/banner_newsweb_pc.png");
-//            }
-//            return Stack(
-//              children: <Widget>[
-//                new Container(
-//                  decoration: new BoxDecoration(image: DecorationImage(image: img,fit: BoxFit.cover),borderRadius:BorderRadius.circular(5.0)),
-//                ),
-//                 Expanded(
-//                  child: new Align(
-//                    alignment: Alignment.bottomCenter,
-//                    child: _buildItemInfo(context),
-//                  ),
-//                ),
-//              ],
-//            );
-//          }),
-//    );
-//  }
-//
-//  /* Product Version */
-//  /*@override
-//  Widget build(BuildContext context) {
-//    return Card(
-//      elevation: 5.0,
-//      child: ScopedModelDescendant<MainModel>(
-//          builder: (BuildContext context, Widget child, MainModel model) {
-//        return Stack(
-//          children: <Widget>[
-//            new Container(
-//              decoration: new BoxDecoration(
-//                  borderRadius: BorderRadius.circular(5.0)),
-//            ),
-//          ],
-//        );
-//      }),
-//    );
-//  }*/
-//}
-
-
-
-
-
-
-
-
-
 import 'package:flutter/material.dart';
+import 'package:nhkeasynews/Pages/NewsDetailPage/NewsDetailPage.dart';
 import 'package:nhkeasynews/store/main.dart';
 import 'package:scoped_model/scoped_model.dart';
 
@@ -97,55 +8,58 @@ class NewsCard extends StatelessWidget {
 
   NewsCard(this.selectItemCardIndex);
 
-  Widget _buildItemInfo(BuildContext context) {
+  var img;
+
+  Widget _buildItemInfo(BuildContext context, String title) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 3.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: <Widget>[
-          new IconButton(
-            icon: Icon(Icons.favorite),
-            color: Colors.grey,
-          ),
-          new IconButton(
-            icon: Icon(Icons.comment),
-            color: Colors.grey,
-            onPressed: () =>
-                Navigator.pushNamed(
-                    context, "/home/" + selectItemCardIndex.toString()),
-          )
-        ],
+      alignment: Alignment.bottomLeft,
+      padding: EdgeInsets.only(left: 10.0, bottom: 8.0),
+      child:Text(
+        title,
+        style: new TextStyle(
+            fontSize: 13.0, fontWeight: FontWeight.w900, color: Colors.white),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5.0,
+    return Container(
+      height: 50.0,
       child: ScopedModelDescendant<MainModel>(
           builder: (BuildContext context, Widget child, MainModel model) {
-            String url = model.allNewsList[selectItemCardIndex].news_web_img_uri == null ? "https://www3.nhk.or.jp/news/easy/images/banner_newsweb_pc.png" : model.allNewsList[selectItemCardIndex].news_web_img_uri;
-            NetworkImage img = null;
-            try {
-              img = new NetworkImage(url);
-            } catch (error) {
-              img = new NetworkImage( "https://www3.nhk.or.jp/news/easy/images/banner_newsweb_pc.png");
-            }
-            return Stack(
-              children: <Widget>[
-                new Container(
-                  decoration: new BoxDecoration(image: DecorationImage(image: img,fit: BoxFit.cover),borderRadius:BorderRadius.circular(5.0)),
+      /*  String url = model.allNewsList[selectItemCardIndex].news_web_img_uri ==
+                null
+            ? "https://www3.nhk.or.jp/news/easy/images/banner_newsweb_pc.png"
+            : model.allNewsList[selectItemCardIndex].news_web_img_uri;
+            img = NetworkImage(url);*/
+
+        var title = model.allNewsList[selectItemCardIndex].title;
+
+        return Stack(
+          children: <Widget>[
+            new Container(
+//                  child: new FadeInImage(placeholder: Image.network("https://www3.nhk.or.jp/news/easy/images/banner_newsweb_pc.png",fit: BoxFit.scaleDown,).image, image: img ,fit: BoxFit.cover,height: screen.width/2 - 10.0, ),
                 ),
-                /*Expanded(
-                  child: new Align(
-                    alignment: Alignment.bottomCenter,
-                    child: _buildItemInfo(context),
-                  ),
-                ),*/
-              ],
-            );
-          }),
+            new Container(
+              decoration: new BoxDecoration(color: Colors.black45),
+            ),
+
+            _buildItemInfo(context, title),
+
+            new InkWell(
+              radius: 20.0,
+              onTap: () {
+//                Navigator.of(context).pushNamed("/detail_test");
+                Navigator.of(context).pushNamed("/home/"+selectItemCardIndex.toString());
+              },
+            ),
+          ],
+        );
+      }),
+      decoration: BoxDecoration(
+        color: Colors.grey,
+      ),
     );
   }
 }

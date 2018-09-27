@@ -22,7 +22,7 @@ class TestState extends State<Test>{
   Widget build(BuildContext context) {
 
     Future<dynamic> _getImage () {
-      return http.get("http://localhost:8080/api/news").then((http.Response response) {
+      return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news").then((http.Response response) {
         List<dynamic> newslistData = json.decode(response.body);
         if (newslistData == null) {
           return;

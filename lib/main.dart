@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:nhkeasynews/Pages/HomePage/HomePage.dart';
-import 'package:nhkeasynews/Pages/NewsDetailPage/NewsDetailPage-test.dart';
 import 'package:nhkeasynews/Pages/NewsDetailPage/NewsDetailPage.dart';
 import 'package:nhkeasynews/Pages/Test.dart';
 import "package:nhkeasynews/store/main.dart";
@@ -27,22 +26,24 @@ class _MyAppState extends State<MyApp> {
           theme: new ThemeData(
             primarySwatch: Colors.grey,
           ),
-//        home: HomePage(model),
-          home: Test(),
+
+          home: HomePage(model),
           routes: {
-//          "/home": (BuildContext context) => HomePage(model),
-//          "/home": (BuildContext context) => NewsDetailsPage_test(model),
-            "/home": (BuildContext context) => Test(),
+            "/home": (BuildContext context) => HomePage(model),
+//            '/detail_test': (BuildContext context) => Test(),
           },
           onGenerateRoute: (RouteSettings settings) {
+
             final List<String> pathElements = settings.name.split("/");
+            print(pathElements);
             if (pathElements[0] != "") {
               return null;
             }
             if (pathElements[1] == "home") {
               final int index = int.parse(pathElements[2]);
               return MaterialPageRoute(
-                  builder: (BuildContext context) => NewsDetailPage(index));
+                  builder: (BuildContext context) =>
+                      NewsDetailsPage(model, index));
             }
           },
         ));

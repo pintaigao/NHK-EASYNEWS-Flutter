@@ -1,73 +1,158 @@
-
 import 'package:flutter/material.dart';
+import 'package:nhkeasynews/store/main.dart';
 import 'package:nhkeasynews/utility/buttons/FloatingButtons.dart';
+import 'package:http/http.dart' as http;
+import 'package:nhkeasynews/utility/rubyword/rubyword.dart';
+import 'package:scoped_model/scoped_model.dart';
 
-class NewsDetailPage extends StatelessWidget {
-  int currentItemDetailIndex;
+class NewsDetailsPage extends StatefulWidget {
+  final MainModel model;
+  var index;
 
-  NewsDetailPage(this.currentItemDetailIndex);
+  NewsDetailsPage(this.model, this.index);
 
   @override
+  State<StatefulWidget> createState() {
+    return _NewsDetailPageState();
+  }
+}
+
+class _NewsDetailPageState extends State<NewsDetailsPage> {
+  @override
+  void initState() {
+    widget.model.startGetNewsDetail(widget.index);
+    super.initState();
+  }
+
+  Widget _buildTitle(BuildContext context, MainModel model) {
+    Map<String, dynamic> title =
+        model.newsdetail == null ? null : model.newsdetail.title;
+    if (title == null) {
+      return new Container();
+    }
+    List<Widget> list = new List();
+    title.forEach((String key, dynamic value) {
+      if (key.contains("content")) {
+        list.add(new Text(
+          value,
+          style: new TextStyle(fontSize: 20.0),
+        ));
+      } else {
+        list.add(new RW(key, value));
+      }
+    });
+    return new Container(
+      margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+      child: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.end,
+        children: list,
+      ),
+    );
+  }
+
+  Widget _buildArticle(BuildContext context, MainModel model) {
+    List<dynamic> articleList =
+        model.newsdetail == null ? null : model.newsdetail.Content;
+
+    if (articleList == null) {
+      return new Container();
+    }
+    List<Widget> list = new List();
+
+    articleList.forEach((dynamic article) {
+      if (article.length == 0) {
+        return;
+      }
+      List<Widget> eacharticle = new List();
+
+      eacharticle.add(SizedBox(
+        width: 50.0,
+      ));
+
+      article.forEach((String key, dynamic value) {
+        if (key.contains("content")) {
+          for (int i = 0; i < value.length; i++) {
+            var char = value[i];
+            eacharticle.add(new RW("", char));
+          }
+        } else {
+          eacharticle.add(new RW(key, value));
+        }
+      });
+      list.add(new Wrap(
+        crossAxisAlignment: WrapCrossAlignment.end,
+        children: eacharticle,
+      ));
+    });
+
+    return new Card(
+        elevation: 10.0,
+        margin: EdgeInsets.all(5.0),
+        child: new Container(
+            padding: EdgeInsets.symmetric(vertical: 1.0, horizontal: 10.0),
+            child: new Column(
+              children: <Widget>[
+                new Wrap(
+                  crossAxisAlignment: WrapCrossAlignment.end,
+                  children: list,
+                ),
+              ],
+            )));
+  }
+
+ /* @override
   Widget build(BuildContext context) {
     return Scaffold(
-      /*appBar: AppBar(
-        elevation: 0.3,
-        title: Text("Product"),
-        backgroundColor: Colors.white,
-        brightness: Brightness.light,
-      ),*/
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            expandedHeight: 256.0,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Hero(
-                tag: currentItemDetailIndex,
-                child: new Container(),
-//                    child: FadeInImage(placeholder: null, image: null)
+      appBar: new AppBar(
+        title: new Text("News"),
+      ),
+      body: ScopedModelDescendant<MainModel>(
+        builder: (BuildContext context, Widget child, MainModel model) {
+          Widget content = new Container(
+            alignment: Alignment.topCenter,
+            child: new SingleChildScrollView(
+              child: new Column(
+                children: <Widget>[
+                  _buildTitle(context, model),
+                  SizedBox(
+                    width: 20.0,
+                    height: 20.0,
+                  ),
+                  _buildArticle(context, model),
+                ],
               ),
             ),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              Container(
-                  padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 0.0),
-                  child: new Column(
-//                    mainAxisAlignment: MainAxisAlignment.center,
-//                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      new Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Icon(Icons.favorite_border, color: Colors.grey),
-                          Icon(Icons.comment, color: Colors.grey),
-                          Icon(Icons.remove_red_eye, color: Colors.grey)
-                        ],
-                      ),
-                      SizedBox(height: 10.0),
-                      ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: null,
-                        ),
-                        title: Text("Name of the item"),
-                        subtitle: Text("Auther"),
-                      ),
-                      SizedBox(height: 10.0),
-                      Container(
-                          margin: EdgeInsets.symmetric(vertical: 0.0,horizontal: 20.0),
-                          child: Text("Item description,")
-
-                      )
-
-                    ],
-                  )
-              )
-            ]),
-          )
-        ],
+          );
+          if (model.isLoading) {
+            content = Center(child: CircularProgressIndicator());
+          }
+          return content;
+        },
       ),
-      floatingActionButton: FloatingButtons(),
+    );
+  }*/
+
+ @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: new AppBar(
+        title: new Text("News"),
+      ),
+      body:new Container(
+        alignment: Alignment.topCenter,
+        child: new SingleChildScrollView(
+          child: new Column(
+            children: <Widget>[
+//              _buildTitle(context),
+              SizedBox(
+                width: 20.0,
+                height: 20.0,
+              ),
+//              _buildArticle(context),
+            ],
+          ),
+        ),
+      )
     );
   }
 }
