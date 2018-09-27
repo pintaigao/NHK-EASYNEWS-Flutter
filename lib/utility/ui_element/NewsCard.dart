@@ -50,7 +50,6 @@ class NewsCard extends StatelessWidget {
             new InkWell(
               radius: 20.0,
               onTap: () {
-//                Navigator.of(context).pushNamed("/detail_test");
                 Navigator.of(context).pushNamed("/home/"+selectItemCardIndex.toString());
               },
             ),

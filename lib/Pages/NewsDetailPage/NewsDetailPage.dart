@@ -6,10 +6,9 @@ import 'package:nhkeasynews/utility/rubyword/rubyword.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class NewsDetailsPage extends StatefulWidget {
-  final MainModel model;
   var index;
 
-  NewsDetailsPage(this.model, this.index);
+  NewsDetailsPage(this.index);
 
   @override
   State<StatefulWidget> createState() {
@@ -20,7 +19,6 @@ class NewsDetailsPage extends StatefulWidget {
 class _NewsDetailPageState extends State<NewsDetailsPage> {
   @override
   void initState() {
-    widget.model.startGetNewsDetail(widget.index);
     super.initState();
   }
 
@@ -100,7 +98,7 @@ class _NewsDetailPageState extends State<NewsDetailsPage> {
             )));
   }
 
- /* @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
@@ -108,6 +106,7 @@ class _NewsDetailPageState extends State<NewsDetailsPage> {
       ),
       body: ScopedModelDescendant<MainModel>(
         builder: (BuildContext context, Widget child, MainModel model) {
+
           Widget content = new Container(
             alignment: Alignment.topCenter,
             child: new SingleChildScrollView(
@@ -123,36 +122,12 @@ class _NewsDetailPageState extends State<NewsDetailsPage> {
               ),
             ),
           );
-          if (model.isLoading) {
+          if (model.NewsDetailisLoading) {
             content = Center(child: CircularProgressIndicator());
           }
           return content;
         },
       ),
-    );
-  }*/
-
- @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: new AppBar(
-        title: new Text("News"),
-      ),
-      body:new Container(
-        alignment: Alignment.topCenter,
-        child: new SingleChildScrollView(
-          child: new Column(
-            children: <Widget>[
-//              _buildTitle(context),
-              SizedBox(
-                width: 20.0,
-                height: 20.0,
-              ),
-//              _buildArticle(context),
-            ],
-          ),
-        ),
-      )
     );
   }
 }

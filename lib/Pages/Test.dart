@@ -20,7 +20,6 @@ class TestState extends State<Test>{
 
   @override
   Widget build(BuildContext context) {
-
     Future<dynamic> _getImage () {
       return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news").then((http.Response response) {
         List<dynamic> newslistData = json.decode(response.body);

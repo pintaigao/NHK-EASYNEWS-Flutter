@@ -8,6 +8,7 @@ import 'package:scoped_model/scoped_model.dart';
 
 class ConnectedProductsModel extends Model {
   bool _isLoading = false;
+  bool _NewsDetailisLoading = false;
   List<NewsList> _newsList = [];
   NewsDetail _newsDetail;
 }
@@ -26,6 +27,11 @@ class NewsListModel extends ConnectedProductsModel {
   bool get isLoading{
     return _isLoading;
   }
+
+  bool get NewsDetailisLoading{
+    return _NewsDetailisLoading;
+  }
+
 
 
   Future<dynamic> startGetAllNewsList() {
@@ -61,7 +67,7 @@ class NewsListModel extends ConnectedProductsModel {
 
   /* Get News Detail */
   Future<dynamic> startGetNewsDetail(int index)  {
-    _isLoading = true;
+    _NewsDetailisLoading = true;
     notifyListeners();
     var newsId = allNewsList[index].news_id;
     print(newsId);
@@ -74,11 +80,11 @@ class NewsListModel extends ConnectedProductsModel {
       final Map<String,dynamic> publicDate = newsDetail["public_time"][0];
       final List<dynamic> article = newsDetail["article"];
       final NewsDetail nw = new NewsDetail(newsTitle, publicDate, article);
-      _isLoading = false;
+      _NewsDetailisLoading = false;
       _newsDetail = nw;
       notifyListeners();
     }).catchError((error){
-      _isLoading = false;
+      _NewsDetailisLoading = false;
       print(error);
       return;
     });

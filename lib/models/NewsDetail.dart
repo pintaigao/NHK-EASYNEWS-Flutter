@@ -5,5 +5,4 @@ class NewsDetail {
 
   NewsDetail(this.title, this.publicDate, this.Content);
 
-
 }

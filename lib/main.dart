@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
     return ScopedModel<MainModel>(
         model: model,
         child: MaterialApp(
-          title: 'Flutter Demo',
+          title: 'NHK Easy News',
           theme: new ThemeData(
             primarySwatch: Colors.grey,
           ),
@@ -30,7 +30,6 @@ class _MyAppState extends State<MyApp> {
           home: HomePage(model),
           routes: {
             "/home": (BuildContext context) => HomePage(model),
-//            '/detail_test': (BuildContext context) => Test(),
           },
           onGenerateRoute: (RouteSettings settings) {
 
@@ -41,10 +40,12 @@ class _MyAppState extends State<MyApp> {
             }
             if (pathElements[1] == "home") {
               final int index = int.parse(pathElements[2]);
+              model.startGetNewsDetail(index);
               return MaterialPageRoute(
                   builder: (BuildContext context) =>
-                      NewsDetailsPage(model, index));
-            }
+                      NewsDetailsPage(index)
+              );
+            };
           },
         ));
   }
