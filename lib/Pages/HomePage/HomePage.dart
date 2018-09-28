@@ -73,31 +73,6 @@ class _HomePageState extends State<HomePage> {
       },childCount: 10),
   );
 
-
-@override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ScopedModelDescendant(
-        builder: (BuildContext context, Widget child, MainModel model) {
-          Widget content = GridView.count(
-            crossAxisCount: 2,
-            mainAxisSpacing: 1.0,
-            crossAxisSpacing: 0.2,
-            children: List.generate(model.allNewsList.length, (int index){
-               return new Container(
-                 child: NewsCard(index),
-               );
-            }),
-          );
-          if (model.isLoading){
-            content = Center(child: CircularProgressIndicator());
-          }
-          return RefreshIndicator(child: content, onRefresh: model.startGetAllNewsList, );
-        },
-      ),
-    );
-  }
-}
 */
 import 'package:flutter/material.dart';
 import 'package:nhkeasynews/store/main.dart';
@@ -115,8 +90,7 @@ class HomePage extends StatefulWidget {
   }
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
@@ -128,11 +102,16 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       body: ScopedModelDescendant(
         builder: (BuildContext context, Widget child, MainModel model) {
-          Widget content = ListView.builder(
-            itemBuilder: (BuildContext context, int index) {
-              return NewsCard(index);
-            },
-            itemCount: model.allNewsList.length,
+          Widget content = GridView.count(
+            padding: EdgeInsets.symmetric(horizontal: 5.0,vertical: 150.0),
+            crossAxisCount: 2,
+            mainAxisSpacing:10.0,
+            crossAxisSpacing: 7.0,
+            children: List.generate(model.allNewsList.length, (int index) {
+              return new Container(
+                child: NewsCard(index),
+              );
+            }),
           );
           if (model.isLoading) {
             content = Center(child: CircularProgressIndicator());

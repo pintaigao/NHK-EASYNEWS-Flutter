@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nhkeasynews/Pages/HomePage/HomePage.dart';
 import 'package:nhkeasynews/Pages/NewsDetailPage/NewsDetailPage.dart';
-import 'package:nhkeasynews/Pages/Test.dart';
 import "package:nhkeasynews/store/main.dart";
 import 'package:scoped_model/scoped_model.dart';
 

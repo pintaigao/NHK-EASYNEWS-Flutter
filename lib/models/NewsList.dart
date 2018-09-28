@@ -7,6 +7,7 @@ class NewsList {
   final String news_web_img_uri;
   final String news_prearranged_time;
   final String news_web_url;
+  var news_photo;
 
   NewsList({
     @required this.news_id,
@@ -14,6 +15,7 @@ class NewsList {
     @required this.title_with_ruby,
     @required this.news_web_img_uri,
     @required this.news_prearranged_time,
-    @required this.news_web_url
+    @required this.news_web_url,
+    this.news_photo,
   });
 }

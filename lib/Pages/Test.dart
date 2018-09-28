@@ -13,7 +13,6 @@ class Test extends StatefulWidget {
   }
 
 }
-
 class TestState extends State<Test>{
 
   var imageEncode;
