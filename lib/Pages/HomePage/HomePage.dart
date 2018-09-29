@@ -90,28 +90,52 @@ class HomePage extends StatefulWidget {
   }
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  ScrollController _scrollViewController;
+
   @override
   void initState() {
     super.initState();
+    _scrollViewController = new ScrollController();
     widget.model.startGetAllNewsList();
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: ScopedModelDescendant(
         builder: (BuildContext context, Widget child, MainModel model) {
-          Widget content = GridView.count(
-            padding: EdgeInsets.symmetric(horizontal: 5.0,vertical: 150.0),
-            crossAxisCount: 2,
-            mainAxisSpacing:10.0,
-            crossAxisSpacing: 7.0,
-            children: List.generate(model.allNewsList.length, (int index) {
-              return new Container(
-                child: NewsCard(index),
-              );
-            }),
+          Widget content = new NestedScrollView(
+            controller: _scrollViewController,
+            headerSliverBuilder:
+                (BuildContext context, bool innerBoxIsScrolled) {
+              return <Widget>[
+                new SliverAppBar(
+                  actions: <Widget>[
+                    new IconButton(
+                        icon: new Icon(Icons.lightbulb_outline), onPressed:() => model.toggleDarkMode()),
+                  ],
+                  centerTitle: true,
+                  title: new Text("NHK EASY NEWS",
+                    style: new TextStyle(color: Colors.grey[700]),),
+                  floating: true,
+                  forceElevated: innerBoxIsScrolled,
+                )
+              ];
+            },
+            body: GridView.count(
+              padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+              crossAxisCount: 2,
+              mainAxisSpacing: 10.0,
+              crossAxisSpacing: 7.0,
+              children: List.generate(model.allNewsList.length, (int index) {
+                return new Container(
+                  child: NewsCard(index,model),
+                );
+              }),
+            ),
           );
           if (model.isLoading) {
             content = Center(child: CircularProgressIndicator());
@@ -125,3 +149,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+

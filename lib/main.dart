@@ -24,6 +24,8 @@ class _MyAppState extends State<MyApp> {
           title: 'NHK Easy News',
           theme: new ThemeData(
             primarySwatch: Colors.grey,
+            primaryColor: Colors.grey[300],
+            brightness:Brightness.light
           ),
 
           home: HomePage(model),

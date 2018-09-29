@@ -11,6 +11,7 @@ class ConnectedProductsModel extends Model {
   bool _newsDetailLoading = false;
   List<NewsList> _newsList = [];
   NewsDetail _newsDetail;
+  bool _darkMode = false;
 }
 
 class NewsListModel extends ConnectedProductsModel {
@@ -33,11 +34,11 @@ class NewsListModel extends ConnectedProductsModel {
 
   Future<dynamic> startGetAllNewsList() {
     _isLoading = true;
-    notifyListeners();
-    return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news").then((http.Response response) {
-//    return http
-//        .get("http://localhost:8080/api/news")
-//        .then((http.Response response) {
+//    notifyListeners();
+//    return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news").then((http.Response response) {
+    return http
+        .get("http://localhost:8080/api/news")
+        .then((http.Response response) {
       final List<NewsList> fetchNewsList = [];
       List<dynamic> newslistData = json.decode(response.body);
       if (newslistData == null) {
@@ -69,11 +70,10 @@ class NewsListModel extends ConnectedProductsModel {
     _newsDetailLoading = true;
     var newsId = allNewsList[index].news_id;
     print(newsId);
-    /*return http
-        .get("http://localhost:8080/ap"
-        .then((http.Response response)*/
-        return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news/" + newsId)
+    return http
+        .get("http://localhost:8080/api/news/" + newsId)
         .then((http.Response response) {
+//        return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news/" + newsId).then((http.Response response) {
       final Map<String, dynamic> newsDetail = json.decode(response.body);
       if (newsDetail == null) {
         return;
@@ -90,5 +90,19 @@ class NewsListModel extends ConnectedProductsModel {
       print(error);
       return;
     });
+  }
+}
+
+class DeviceStatus extends ConnectedProductsModel {
+  // Getter
+  bool get darkMode {
+    return _darkMode;
+  }
+
+  // setter
+  void toggleDarkMode() {
+    print(_darkMode);
+    _darkMode == false?_darkMode = true:_darkMode = false;
+    notifyListeners();
   }
 }
