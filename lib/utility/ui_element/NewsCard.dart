@@ -7,6 +7,8 @@ class NewsCard extends StatelessWidget {
   final MainModel model;
   NewsCard(this.selectItemCardIndex, this.model);
   bool flag = false;
+
+
   Widget _buildItemInfo(BuildContext context, String title, String date) {
     return Container(
         alignment: Alignment.bottomLeft,
@@ -27,9 +29,9 @@ class NewsCard extends StatelessWidget {
               child: new Text(
                 date,
                 style: new TextStyle(
-                    fontSize: 10.0,
-                    fontWeight: FontWeight.w200,
-                    color: Colors.white),
+                    fontSize: 13.0,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.grey[300]),
               ),
             )
           ],
@@ -54,7 +56,7 @@ class NewsCard extends StatelessWidget {
     return new Container(
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(10.0), boxShadow: [
-        BoxShadow(color: Colors.black87, blurRadius: 5.0),
+        BoxShadow(color: Colors.grey, blurRadius: 3.0,offset: Offset(0.0, 5.0)),
       ]),
       child: Stack(
         children: <Widget>[

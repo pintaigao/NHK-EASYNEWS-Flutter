@@ -89,7 +89,7 @@ class _NewsDetailPageState extends State<NewsDetailsPage> {
 
     return new Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
-        elevation: 8.0,
+        elevation: 5.0,
         margin: EdgeInsets.only(top: 0.0,left: 8.0,right: 8.0,bottom: 0.0),
         child: new Container(
             padding: EdgeInsets.symmetric(vertical: 13.0, horizontal: 10.0),

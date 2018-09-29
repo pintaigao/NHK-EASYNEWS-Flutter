@@ -101,7 +101,6 @@ class _HomePageState extends State<HomePage>
     widget.model.startGetAllNewsList();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,11 +114,14 @@ class _HomePageState extends State<HomePage>
                 new SliverAppBar(
                   actions: <Widget>[
                     new IconButton(
-                        icon: new Icon(Icons.lightbulb_outline), onPressed:() => model.toggleDarkMode()),
+                        icon: new Icon(Icons.lightbulb_outline),
+                        onPressed: () => model.toggleDarkMode()),
                   ],
                   centerTitle: true,
-                  title: new Text("NHK EASY NEWS",
-                    style: new TextStyle(color: Colors.grey[700]),),
+                  title: new Text(
+                    "NHK EASY NEWS",
+                    style: new TextStyle(color: Colors.grey[700]),
+                  ),
                   floating: true,
                   forceElevated: innerBoxIsScrolled,
                 )
@@ -132,7 +134,7 @@ class _HomePageState extends State<HomePage>
               crossAxisSpacing: 7.0,
               children: List.generate(model.allNewsList.length, (int index) {
                 return new Container(
-                  child: NewsCard(index,model),
+                  child: NewsCard(index, model),
                 );
               }),
             ),
@@ -149,4 +151,3 @@ class _HomePageState extends State<HomePage>
     );
   }
 }
-
