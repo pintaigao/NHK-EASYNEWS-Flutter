@@ -19,8 +19,7 @@ class NewsDetailsPage extends StatefulWidget {
 class _NewsDetailPageState extends State<NewsDetailsPage> {
 
   Widget _buildTitle(BuildContext context, MainModel model) {
-    Map<String, dynamic> title =
-        model.newsdetail == null ? null : model.newsdetail.title;
+    Map<String, dynamic> title =  model.newsdetail == null ? null : model.newsdetail.title;
     if (title == null) {
       return new Container();
     }
@@ -30,15 +29,17 @@ class _NewsDetailPageState extends State<NewsDetailsPage> {
       if (key.contains("content")) {
         for (int i = 0; i < value.length; i++) {
           var char = value[i];
-          list.add(new RW("", char));
+          list.add(new RW("", char,rubySize: 8.0,wordSize: 14.0,wordColor: Colors.white,fontWeight: FontWeight.bold,));
         }
       } else {
-        list.add(new RW(key, value));
+        list.add(new RW(key, value,rubySize: 8.0,wordSize: 14.0,wordColor: Colors.white,fontWeight: FontWeight.bold));
       }
     });
 
     return new Container(
-      margin: EdgeInsets.only(left: 10.0,right: 10.0,top: 10.0,bottom: 10.0),
+      width: MediaQuery.of(context).size.width/2,
+      alignment: Alignment(0.0, 1.0),
+      margin: EdgeInsets.only(top: 5.0),
       child: Wrap(
         crossAxisAlignment: WrapCrossAlignment.end,
         children: list,
@@ -108,33 +109,37 @@ class _NewsDetailPageState extends State<NewsDetailsPage> {
     if(imageData == null){
       return new Container();
     }
-    return Image.memory(Base64Codec().decode(imageData), fit: BoxFit.cover);
+    return new Hero(tag: "image-id:${widget.index})", child: new Material(
+      child: Image.memory(Base64Codec().decode(imageData), fit: BoxFit.fitHeight),
+    ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text("News"),
-      ),
       body: ScopedModelDescendant<MainModel>(
         builder: (BuildContext context, Widget child, MainModel model) {
-          Widget content = new Container(
-            alignment: Alignment.topCenter,
-            child: new SingleChildScrollView(
-              padding: EdgeInsets.only(bottom: 50.0),
-              child: new Column(
-                children: <Widget>[
-                  _buildTitle(context, model),
-                  _buildHeaderImage(context,model),
-                  SizedBox(
-                    width: 20.0,
-                    height: 20.0,
-                  ),
-                  _buildArticle(context, model),
-                ],
+          Widget content = new CustomScrollView(
+            slivers: <Widget>[
+              SliverAppBar(
+                expandedHeight: 255.0,
+                elevation: 5.0,
+                forceElevated: true,
+                flexibleSpace: FlexibleSpaceBar(
+                  title: _buildTitle(context, model),
+                  background: _buildHeaderImage(context,model),
+                ),
               ),
-            ),
+              SliverList(
+                delegate: SliverChildListDelegate([
+                  SizedBox(height: 15.0,),
+                  _buildArticle(context, model),
+                  SizedBox(height: 50.0,),
+                ]),
+
+              )
+            ],
+
           );
           if (model.newsDetailLoading) {
             content = Center(child: CircularProgressIndicator());

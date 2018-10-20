@@ -21,6 +21,7 @@ class _MyAppState extends State<MyApp> {
     return ScopedModel<MainModel>(
         model: model,
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'NHK Easy News',
           theme: new ThemeData(
             primarySwatch: Colors.grey,
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
                   builder: (BuildContext context) =>
                       NewsDetailsPage(index)
               );
-            };
+            }
           },
         ));
   }

@@ -7,6 +7,7 @@ import 'package:nhkeasynews/models/NewsList.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class ConnectedProductsModel extends Model {
+  String _newsId = null;
   bool _isLoading = false;
   bool _newsDetailLoading = false;
   List<NewsList> _newsList = [];
@@ -19,6 +20,7 @@ class NewsListModel extends ConnectedProductsModel {
   List<NewsList> get allNewsList {
     return List.from(_newsList);
   }
+
 
   NewsDetail get newsdetail {
     return _newsDetail;
@@ -34,10 +36,8 @@ class NewsListModel extends ConnectedProductsModel {
 
   Future<dynamic> startGetAllNewsList() {
     _isLoading = true;
-//    notifyListeners();
-//    return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news").then((http.Response response) {
     return http
-        .get("http://localhost:8080/api/news")
+        .get("http://70.115.138.13:8080/api/news")
         .then((http.Response response) {
       final List<NewsList> fetchNewsList = [];
       List<dynamic> newslistData = json.decode(response.body);
@@ -71,7 +71,7 @@ class NewsListModel extends ConnectedProductsModel {
     var newsId = allNewsList[index].news_id;
     print(newsId);
     return http
-        .get("http://localhost:8080/api/news/" + newsId)
+        .get("http://70.115.138.13:8080/api/news/" + newsId)
         .then((http.Response response) {
 //        return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news/" + newsId).then((http.Response response) {
       final Map<String, dynamic> newsDetail = json.decode(response.body);
@@ -92,6 +92,12 @@ class NewsListModel extends ConnectedProductsModel {
     });
   }
 }
+
+/* Get News Video */
+/*BackUp Url: https://www3.nhk.or.jp/news/html/20181019/movie/k10011677101_201810190048_201810190055.html */
+
+/* Get News Audio */
+/* BackUp Url:https://www3.nhk.or.jp/news/easy/player/audio.html?id=k10011677101000*/
 
 class DeviceStatus extends ConnectedProductsModel {
   // Getter

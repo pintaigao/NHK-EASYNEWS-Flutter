@@ -8,8 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0775c275-6860-4c3e-a327-1b7b54f97aee" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Pages/HomePage/HomePage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/HomePage/HomePage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Pages/NewsDetailPage/NewsDetailPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Pages/NewsDetailPage/NewsDetailPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/store/connected_products.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/store/connected_products.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utility/rubyword/rubyword.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utility/rubyword/rubyword.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utility/ui_element/NewsCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utility/ui_element/NewsCard.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -91,30 +93,32 @@
     <session id="-1244836321">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.7" value="3" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="dart" value="14" />
+          <entry key="dart" value="25" />
           <entry key="gradle" value="1" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Dart" value="14" />
+          <entry key="Dart" value="25" />
           <entry key="Groovy" value="1" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Dart" value="1251" />
+          <entry key="Dart" value="2382" />
           <entry key="XML" value="14" />
         </counts>
       </usages-collector>
@@ -124,7 +128,7 @@
       <usages-collector id="statistics.spring.boot.run.usages" />
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dart" value="1251" />
+          <entry key="dart" value="2382" />
           <entry key="xml" value="14" />
         </counts>
       </usages-collector>
@@ -137,35 +141,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/main.dart">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/utility/ui_element/NewsCard.dart">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lib/store/connected_products.dart">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="278">
-                  <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+                <state relative-caret-position="180">
+                  <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/lib/Pages/NewsDetailPage/NewsDetailPage.dart">
+            <entry file="file://$PROJECT_DIR$/lib/utility/rubyword/rubyword.dart">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
+                <state relative-caret-position="270">
+                  <caret line="18" column="103" selection-start-line="18" selection-start-column="103" selection-end-line="18" selection-end-column="103" />
                 </state>
               </provider>
             </entry>
@@ -173,12 +159,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/lib/Pages/HomePage/HomePage.dart">
+            <entry file="file://$PROJECT_DIR$/lib/Pages/NewsDetailPage/NewsDetailPage.dart">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="322">
-                  <caret line="103" selection-start-line="103" selection-end-line="103" />
+                <state relative-caret-position="357">
+                  <caret line="34" column="115" selection-start-line="34" selection-start-column="115" selection-end-line="34" selection-end-column="115" />
                 </state>
               </provider>
             </entry>
@@ -202,6 +188,8 @@
       <find>sized</find>
       <find>_buildItemInfo</find>
       <find>size</find>
+      <find>title</find>
+      <find>_buildArticle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,7 +200,6 @@
       <list>
         <option value="$PROJECT_DIR$/lib/NewsDetailPage/NewsDetailPage.dart" />
         <option value="$PROJECT_DIR$/lib/HomePage/HomePage.dart" />
-        <option value="$PROJECT_DIR$/lib/utility/rubyword/rubyword.dart" />
         <option value="$PROJECT_DIR$/lib/Pages/NewsDetailPage/NewsDetailPage-test.dart" />
         <option value="$PROJECT_DIR$/lib/utility/functionality/NetworkImageLoader.dart" />
         <option value="$PROJECT_DIR$/lib/models/NewsDetail.dart" />
@@ -227,10 +214,11 @@
         <option value="$PROJECT_DIR$/android/app/src/main/res/drawable/launch_background.xml" />
         <option value="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/lib/store/main.dart" />
-        <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/store/connected_products.dart" />
-        <option value="$PROJECT_DIR$/lib/utility/ui_element/NewsCard.dart" />
         <option value="$PROJECT_DIR$/lib/Pages/HomePage/HomePage.dart" />
+        <option value="$PROJECT_DIR$/lib/store/connected_products.dart" />
+        <option value="$PROJECT_DIR$/lib/main.dart" />
+        <option value="$PROJECT_DIR$/lib/utility/ui_element/NewsCard.dart" />
+        <option value="$PROJECT_DIR$/lib/utility/rubyword/rubyword.dart" />
         <option value="$PROJECT_DIR$/lib/Pages/NewsDetailPage/NewsDetailPage.dart" />
       </list>
     </option>
@@ -242,10 +230,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1680" />
-    <option name="y" value="23" />
-    <option name="width" value="2048" />
-    <option name="height" value="1129" />
+    <option name="x" value="-2560" />
+    <option name="y" value="-30" />
+    <option name="width" value="1680" />
+    <option name="height" value="991" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -255,9 +243,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,15 +268,17 @@
               <item name="nhk_flutter" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="Pages" type="462c0819:PsiDirectoryNode" />
-              <item name="NewsDetailPage" type="462c0819:PsiDirectoryNode" />
+              <item name="HomePage" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="card&#9;FILE&#9;file:///Users/hptg/Documents/Projects/Mobile/Flutter/nhk_flutter/lib/utility/ui_element/NewsCard.dart&#10;conne&#9;FILE&#9;file:///Users/hptg/Documents/Projects/Mobile/Flutter/nhk_flutter/lib/store/connected_products.dart" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538093681969" />
@@ -384,12 +373,17 @@
       <workItem from="1538118248948" duration="248000" />
       <workItem from="1538144540439" duration="1292000" />
       <workItem from="1538146442978" duration="594000" />
-      <workItem from="1538191776076" duration="6017000" />
+      <workItem from="1538191776076" duration="6022000" />
+      <workItem from="1539140386574" duration="8000" />
+      <workItem from="1539875100398" duration="983000" />
+      <workItem from="1539926347567" duration="654000" />
+      <workItem from="1539973618633" duration="4063000" />
+      <workItem from="1539992397040" duration="3668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59500000" />
+    <option name="totallyTimeSpent" value="68881000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -401,10 +395,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1680" y="23" width="2048" height="1129" extended-state="6" />
+    <frame x="-2560" y="-34" width="2560" height="998" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12512463" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11040508" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Build Variants" order="3" side_tool="true" />
@@ -415,7 +409,7 @@
       <window_info id="UI Designer" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.27483124" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.205298" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39922854" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -440,6 +434,7 @@
       <window_info anchor="right" id="Palette" order="10" />
       <window_info anchor="right" id="Maven Projects" order="11" />
       <window_info anchor="right" id="Database" order="12" />
+      <window_info anchor="right" id="SciView" order="13" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.08553971" />
@@ -505,13 +500,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="296" column="11" selection-start-line="296" selection-start-column="11" selection-end-line="296" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/utility/rubyword/rubyword.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -633,20 +621,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/store/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="3" column="84" selection-start-line="3" selection-start-column="84" selection-end-line="3" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Flutter/packages/flutter/lib/src/material/colors.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="314">
@@ -654,31 +628,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/utility/ui_element/NewsCard.dart">
+    <entry file="file://$PROJECT_DIR$/lib/store/connected_products.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="31" column="32" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+        <state relative-caret-position="300">
+          <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/store/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Pages/HomePage/HomePage.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="584">
+          <caret line="148" selection-start-line="148" selection-end-line="148" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/store/connected_products.dart">
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="180">
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/utility/rubyword/rubyword.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="103" selection-start-line="18" selection-start-column="103" selection-end-line="18" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/utility/ui_element/NewsCard.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="52" column="54" lean-forward="true" selection-start-line="52" selection-start-column="54" selection-end-line="52" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Pages/NewsDetailPage/NewsDetailPage.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
+        <state relative-caret-position="357">
+          <caret line="34" column="115" selection-start-line="34" selection-start-column="115" selection-end-line="34" selection-end-column="115" />
         </state>
       </provider>
     </entry>

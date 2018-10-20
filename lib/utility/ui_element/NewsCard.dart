@@ -41,8 +41,7 @@ class NewsCard extends StatelessWidget {
   Image _buildImage(imageData) {
     if (imageData == null) {
       flag = true;
-      return Image.network(
-          "https://www3.nhk.or.jp/news/easy/images/banner_newsweb_pc.png");
+      return Image.network("https://www3.nhk.or.jp/news/easy/images/banner_newsweb_pc.png");
     }
 
     return Image.memory(Base64Codec().decode(imageData), fit: BoxFit.cover);
@@ -54,20 +53,19 @@ class NewsCard extends StatelessWidget {
     String date = model.allNewsList[selectItemCardIndex].news_prearranged_time;
     var img = _buildImage(model.allNewsList[selectItemCardIndex].news_photo);
     return new Container(
-      decoration:
-          BoxDecoration(borderRadius: BorderRadius.circular(10.0), boxShadow: [
-        BoxShadow(color: Colors.grey, blurRadius: 3.0,offset: Offset(0.0, 5.0)),
-      ]),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(30.0), boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 3.0,offset: Offset(0.0, 5.0)) ]),
       child: Stack(
+        overflow: Overflow.clip,
         children: <Widget>[
-          new Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
-              image: flag
-                  ? DecorationImage(
-                      image: img.image,
-                    )
-                  : DecorationImage(image: img.image, fit: BoxFit.cover),
+          new Hero(
+            tag:"image-id:$selectItemCardIndex",
+            child: new Material(
+              child: new Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  image: flag  ? DecorationImage( image: img.image, ) : DecorationImage(image: img.image, fit: BoxFit.cover),
+                ),
+              ),
             ),
           ),
           new Container(
@@ -79,8 +77,7 @@ class NewsCard extends StatelessWidget {
           new InkWell(
             radius: 20.0,
             onTap: () {
-              Navigator.of(context)
-                  .pushNamed("/home/" + selectItemCardIndex.toString());
+              Navigator.of(context).pushNamed("/home/" + selectItemCardIndex.toString());
             },
           ),
         ],
