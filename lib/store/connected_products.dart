@@ -98,6 +98,7 @@ class NewsListModel extends ConnectedProductsModel {
 
 /* Get News Audio */
 /* BackUp Url:https://www3.nhk.or.jp/news/easy/player/audio.html?id=k10011677101000*/
+/*https://nhks-vh.akamaihd.net/i/news/easy/k10011677101000.mp4/master.m3u8*/
 
 class DeviceStatus extends ConnectedProductsModel {
   // Getter
