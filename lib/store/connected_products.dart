@@ -36,8 +36,9 @@ class NewsListModel extends ConnectedProductsModel {
 
   Future<dynamic> startGetAllNewsList() {
     _isLoading = true;
+    print("It will call");
     return http
-        .get("http://70.115.138.13:8080/api/news")
+        .get("http://70.123.148.33:8080/api/news")
         .then((http.Response response) {
       final List<NewsList> fetchNewsList = [];
       List<dynamic> newslistData = json.decode(response.body);
@@ -71,8 +72,10 @@ class NewsListModel extends ConnectedProductsModel {
     var newsId = allNewsList[index].news_id;
     print(newsId);
     return http
-        .get("http://70.115.138.13:8080/api/news/" + newsId)
+        .get("http://70.123.148.33:8080/api/news/" + newsId)
         .then((http.Response response) {
+          print("Get Data");
+          print(response.body);
 //        return http.get("http://nhk-server.us-east-1.elasticbeanstalk.com/api/news/" + newsId).then((http.Response response) {
       final Map<String, dynamic> newsDetail = json.decode(response.body);
       if (newsDetail == null) {

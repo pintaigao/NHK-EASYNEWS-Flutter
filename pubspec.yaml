@@ -54,7 +54,10 @@ flutter:
   assets:
   - assets/icon/NHK_logo.png
 
-
+analyzer:
+  string-mode: true
+  language:
+    enableSuperMixins: true
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -82,3 +85,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
+
